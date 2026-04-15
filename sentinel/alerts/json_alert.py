@@ -1,6 +1,6 @@
-"""Structured JSON alerter."""
-
 from __future__ import annotations
+
+"""Structured JSON alerter."""
 
 import json
 from pathlib import Path
@@ -10,7 +10,6 @@ from sentinel.alerts.base import BaseAlerter
 from sentinel.detector.drift import DriftEvent
 from sentinel.diff.engine import DiffEngine
 from sentinel.store.models import SchemaSnapshot
-
 
 class JSONAlerter(BaseAlerter):
     """Alert via structured JSON output."""

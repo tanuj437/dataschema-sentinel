@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Profiler for pandas DataFrames."""
 
 from datetime import datetime, timezone
@@ -7,7 +9,6 @@ import pandas as pd
 
 from sentinel.profiler.base import BaseProfiler
 from sentinel.store.models import ColumnProfile, SchemaSnapshot
-
 
 DTYPE_MAP = {
     "int64": "int64",
@@ -30,11 +31,8 @@ DTYPE_MAP = {
     "category": "category",
 }
 
-
 class PandasProfiler(BaseProfiler):
     """Profiler for pandas DataFrames."""
-from __future__ import annotations
-
 
     def profile(self, df: pd.DataFrame, name: str, version: int) -> SchemaSnapshot:
         """Profile a pandas DataFrame.

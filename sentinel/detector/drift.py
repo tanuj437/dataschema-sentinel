@@ -1,6 +1,6 @@
-"""Core drift detection logic."""
-
 from __future__ import annotations
+
+"""Core drift detection logic."""
 
 from dataclasses import dataclass
 from enum import Enum
@@ -8,14 +8,12 @@ from typing import Optional
 
 from sentinel.store.models import SchemaSnapshot
 
-
 class DriftSeverity(Enum):
     """Severity levels for drift events."""
 
     BREAKING = "BREAKING"  # Pipeline will fail
     WARNING = "WARNING"  # Unexpected but may be okay
     INFO = "INFO"  # Interesting but low risk
-
 
 @dataclass
 class DriftEvent:
@@ -27,7 +25,6 @@ class DriftEvent:
     message: str
     old_value: Optional[str]
     new_value: Optional[str]
-
 
 def detect_drift(
     old: SchemaSnapshot,
@@ -75,7 +72,6 @@ def detect_drift(
     severity_order = {DriftSeverity.BREAKING: 0, DriftSeverity.WARNING: 1, DriftSeverity.INFO: 2}
     return sorted(events, key=lambda e: severity_order[e.severity])
 
-
 def _check_dropped_columns(old: SchemaSnapshot, new: SchemaSnapshot) -> list[DriftEvent]:
     """Check for dropped columns."""
     dropped = set(old.columns) - set(new.columns)
@@ -91,7 +87,6 @@ def _check_dropped_columns(old: SchemaSnapshot, new: SchemaSnapshot) -> list[Dri
         for col in dropped
     ]
 
-
 def _check_added_columns(old: SchemaSnapshot, new: SchemaSnapshot) -> list[DriftEvent]:
     """Check for added columns."""
     added = set(new.columns) - set(old.columns)
@@ -106,7 +101,6 @@ def _check_added_columns(old: SchemaSnapshot, new: SchemaSnapshot) -> list[Drift
         )
         for col in added
     ]
-
 
 def _check_type_changes(old: SchemaSnapshot, new: SchemaSnapshot) -> list[DriftEvent]:
     """Check for type changes."""
@@ -130,7 +124,6 @@ def _check_type_changes(old: SchemaSnapshot, new: SchemaSnapshot) -> list[DriftE
             )
     return events
 
-
 def _check_nullability(old: SchemaSnapshot, new: SchemaSnapshot) -> list[DriftEvent]:
     """Check for nullability changes."""
     events = []
@@ -151,7 +144,6 @@ def _check_nullability(old: SchemaSnapshot, new: SchemaSnapshot) -> list[DriftEv
                 )
             )
     return events
-
 
 def _check_stats_drift(
     old: SchemaSnapshot, new: SchemaSnapshot, threshold: float = 0.2
@@ -179,7 +171,6 @@ def _check_stats_drift(
             )
     return events
 
-
 def _check_row_count(
     old: SchemaSnapshot, new: SchemaSnapshot, threshold: float = 0.1
 ) -> list[DriftEvent]:
@@ -200,7 +191,6 @@ def _check_row_count(
             )
         ]
     return []
-
 
 def _is_safe_widening(old_type: str, new_type: str) -> bool:
     """Check if type change is a safe widening (int32→int64, float32→float64)."""

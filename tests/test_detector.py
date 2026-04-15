@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Tests for drift detection."""
 
 import pytest
@@ -12,11 +14,9 @@ from sentinel.detector.drift import (
 from sentinel.store.models import ColumnProfile, SchemaSnapshot
 import pandas as pd
 
-
 @pytest.fixture
 def snapshot_v1():
     """First version of a schema."""
-from __future__ import annotations
 
     return SchemaSnapshot(
         name="test",
@@ -51,7 +51,6 @@ from __future__ import annotations
         source_type="pandas",
         version=1,
     )
-
 
 class TestDriftDetection:
     """Tests for drift detection."""

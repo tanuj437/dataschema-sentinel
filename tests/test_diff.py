@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Tests for diff engine."""
 
 import pytest
@@ -5,11 +7,9 @@ import pytest
 from sentinel.detector.drift import DriftEvent, DriftSeverity
 from sentinel.diff.engine import DiffEngine
 
-
 @pytest.fixture
 def sample_events():
     """Sample drift events for testing."""
-from __future__ import annotations
 
     return [
         DriftEvent(
@@ -37,7 +37,6 @@ from __future__ import annotations
             new_value="True",
         ),
     ]
-
 
 class TestDiffEngine:
     """Tests for DiffEngine."""

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Tests for alerters."""
 
 import json
@@ -13,11 +15,9 @@ from sentinel.detector.drift import DriftEvent, DriftSeverity
 from sentinel.store.models import ColumnProfile, SchemaSnapshot
 import pandas as pd
 
-
 @pytest.fixture
 def snapshots_with_drift():
     """Create snapshots with drift events."""
-from __future__ import annotations
 
     snap_v1 = SchemaSnapshot(
         name="test",
@@ -73,7 +73,6 @@ from __future__ import annotations
     ]
     return snap_v1, snap_v2, events
 
-
 class TestTerminalAlerter:
     """Tests for TerminalAlerter."""
 
@@ -102,7 +101,6 @@ class TestTerminalAlerter:
         result = output.getvalue()
 
         assert "No schema drift detected" in result
-
 
 class TestJSONAlerter:
     """Tests for JSONAlerter."""

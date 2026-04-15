@@ -1,6 +1,6 @@
-"""Main Sentinel class for schema drift detection."""
-
 from __future__ import annotations
+
+"""Main Sentinel class for schema drift detection."""
 
 from datetime import datetime
 from functools import wraps
@@ -15,15 +15,12 @@ from sentinel.profiler.pandas_profiler import PandasProfiler
 from sentinel.store.models import SchemaSnapshot
 from sentinel.store.schema_store import SchemaStore
 
-
 T = TypeVar("T")
-
 
 class SchemaDriftError(Exception):
     """Raised when schema drift is detected with on_drift='raise'."""
 
     pass
-
 
 class Sentinel:
     """Main class for schema drift detection."""
@@ -229,7 +226,6 @@ class Sentinel:
             List of schema names
         """
         return self.store.list_schemas()
-
 
 class _CompareContext:
     """Context manager for explicit schema comparison."""

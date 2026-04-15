@@ -1,6 +1,6 @@
-"""SQLite-backed versioned schema storage."""
-
 from __future__ import annotations
+
+"""SQLite-backed versioned schema storage."""
 
 import json
 import sqlite3
@@ -9,7 +9,6 @@ from pathlib import Path
 from typing import Optional
 
 from sentinel.store.models import ColumnProfile, SchemaSnapshot
-
 
 class SchemaStore:
     """Versioned schema storage backed by SQLite."""

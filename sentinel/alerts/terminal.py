@@ -1,6 +1,6 @@
-"""Terminal output alerter using Rich."""
-
 from __future__ import annotations
+
+"""Terminal output alerter using Rich."""
 
 from rich.console import Console
 from rich.panel import Panel
@@ -11,13 +11,11 @@ from sentinel.alerts.base import BaseAlerter
 from sentinel.detector.drift import DriftEvent, DriftSeverity
 from sentinel.store.models import SchemaSnapshot
 
-
 SEVERITY_STYLE = {
     DriftSeverity.BREAKING: ("bold red", "BREAKING"),
     DriftSeverity.WARNING: ("yellow", "WARNING"),
     DriftSeverity.INFO: ("dim", "INFO"),
 }
-
 
 class TerminalAlerter(BaseAlerter):
     """Alert renderer for terminal output using Rich."""

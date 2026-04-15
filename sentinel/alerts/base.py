@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Base class for alerters."""
 
 from abc import ABC, abstractmethod
@@ -6,11 +8,8 @@ from typing import Optional
 from sentinel.detector.drift import DriftEvent
 from sentinel.store.models import SchemaSnapshot
 
-
 class BaseAlerter(ABC):
     """Abstract base class for drift alerters."""
-from __future__ import annotations
-
 
     @abstractmethod
     def alert(

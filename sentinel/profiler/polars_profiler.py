@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Profiler for Polars DataFrames."""
 
 from datetime import datetime, timezone
@@ -5,11 +7,8 @@ from datetime import datetime, timezone
 from sentinel.profiler.base import BaseProfiler
 from sentinel.store.models import SchemaSnapshot
 
-
 class PolarsProfiler(BaseProfiler):
     """Profiler for Polars DataFrames.
-from __future__ import annotations
-
 
     TODO: Implement Polars DataFrame profiling.
     """

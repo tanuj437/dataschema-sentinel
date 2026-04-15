@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Profiler for SQL tables via SQLAlchemy."""
 
 from datetime import datetime, timezone
@@ -5,11 +7,8 @@ from datetime import datetime, timezone
 from sentinel.profiler.base import BaseProfiler
 from sentinel.store.models import SchemaSnapshot
 
-
 class SQLProfiler(BaseProfiler):
     """Profiler for SQL tables via SQLAlchemy.
-from __future__ import annotations
-
 
     TODO: Implement SQL table profiling via information_schema.
     """

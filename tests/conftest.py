@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Pytest configuration and shared fixtures."""
 
 import tempfile
@@ -10,11 +12,9 @@ from sentinel.config import SentinelConfig
 from sentinel.store.models import ColumnProfile, SchemaSnapshot
 from sentinel.core import Sentinel
 
-
 @pytest.fixture
 def temp_db():
     """Temporary database for testing."""
-    from __future__ import annotations
 
     import sqlite3
     import atexit
@@ -27,18 +27,15 @@ def temp_db():
         import gc
         gc.collect()
 
-
 @pytest.fixture
 def sentinel_config(temp_db):
     """Sentinel config with temporary database."""
     return SentinelConfig(db_path=temp_db)
 
-
 @pytest.fixture
 def sentinel(sentinel_config):
     """Sentinel instance with temporary configuration."""
     return Sentinel(sentinel_config)
-
 
 @pytest.fixture
 def sample_dataframe():
@@ -49,7 +46,6 @@ def sample_dataframe():
         "age": [25, 30, 35, 40, 45],
         "active": [True, True, False, True, False],
     })
-
 
 @pytest.fixture
 def sample_snapshot():

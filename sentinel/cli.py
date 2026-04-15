@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Command-line interface for Sentinel."""
 
 import argparse
@@ -6,10 +8,8 @@ from pathlib import Path
 
 import sentinel
 
-
 def main():
     """Main CLI entry point."""
-from __future__ import annotations
 
     parser = argparse.ArgumentParser(
         description="DataSchema Sentinel - Schema drift detection for data pipelines"
@@ -52,7 +52,6 @@ from __future__ import annotations
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
 
-
 def cmd_diff(args):
     """Handle diff command."""
     instance = sentinel.get_instance()
@@ -65,7 +64,6 @@ def cmd_diff(args):
     for event in events:
         print(f"[{event.severity.value}] {event.column}: {event.message}")
 
-
 def cmd_history(args):
     """Handle history command."""
     instance = sentinel.get_instance()
@@ -76,7 +74,6 @@ def cmd_history(args):
     for snap in snapshots:
         print(f"  v{snap.version:3d} | {snap.captured_at.isoformat()} | {snap.row_count:8,} rows | {len(snap.columns):3d} cols")
 
-
 def cmd_list(args):
     """Handle list command."""
     instance = sentinel.get_instance()
@@ -85,7 +82,6 @@ def cmd_list(args):
     print(f"Tracked schemas ({len(schemas)}):")
     for schema in schemas:
         print(f"  - {schema}")
-
 
 def cmd_export(args):
     """Handle export command."""
@@ -104,7 +100,6 @@ def cmd_export(args):
         print("column,dtype,nullable,null_count,null_pct,unique_count")
         for col_name, col_profile in snap.columns.items():
             print(f"{col_name},{col_profile.dtype},{col_profile.nullable},{col_profile.null_count},{col_profile.null_pct},{col_profile.unique_count or 'N/A'}")
-
 
 if __name__ == "__main__":
     main()

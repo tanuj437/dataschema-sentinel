@@ -1,15 +1,14 @@
+from __future__ import annotations
+
 """Configuration for Sentinel."""
 
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Literal
 
-
 @dataclass
 class SentinelConfig:
     """Configuration for Sentinel behavior."""
-from __future__ import annotations
-
 
     db_path: Path = field(default_factory=lambda: Path.home() / ".sentinel" / "schemas.db")
     enabled_rules: list[str] = field(

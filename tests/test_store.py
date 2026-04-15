@@ -1,14 +1,13 @@
+from __future__ import annotations
+
 """Tests for schema storage."""
 
 import pytest
 
 from sentinel.store.schema_store import SchemaStore
 
-
 class TestSchemaStore:
     """Tests for SchemaStore."""
-from __future__ import annotations
-
 
     def test_save_and_load_latest(self, temp_db, sample_snapshot):
         """Test saving and loading latest snapshot."""

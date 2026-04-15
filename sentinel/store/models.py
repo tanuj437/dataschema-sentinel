@@ -1,15 +1,14 @@
+from __future__ import annotations
+
 """Core data models for schema snapshots and column profiles."""
 
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, Optional
 
-
 @dataclass
 class ColumnProfile:
     """Profile of a single column in a DataFrame/table."""
-from __future__ import annotations
-
 
     name: str
     dtype: str  # Normalized dtype string: "int64", "float64", "object", etc.
@@ -21,7 +20,6 @@ from __future__ import annotations
     max_val: Optional[Any]
     mean_val: Optional[float]  # For numeric columns
     sample_values: list[Any] = field(default_factory=list)  # Up to 5 sample values
-
 
 @dataclass
 class SchemaSnapshot:

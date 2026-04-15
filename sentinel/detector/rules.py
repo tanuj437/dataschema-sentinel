@@ -1,16 +1,14 @@
-"""Built-in and custom drift detection rules."""
-
 from __future__ import annotations
+
+"""Built-in and custom drift detection rules."""
 
 from typing import Callable, Optional
 
 from sentinel.detector.drift import DriftEvent, DriftSeverity
 from sentinel.store.models import SchemaSnapshot
 
-
 # Registry of custom rules
 _custom_rules: dict[str, Callable] = {}
-
 
 def rule(name: str, severity: str = "WARNING") -> Callable:
     """Decorator to register a custom drift detection rule.
@@ -36,7 +34,6 @@ def rule(name: str, severity: str = "WARNING") -> Callable:
         return func
 
     return decorator
-
 
 def get_custom_rules() -> dict[str, tuple[Callable, str]]:
     """Get all registered custom rules."""

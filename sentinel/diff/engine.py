@@ -1,13 +1,12 @@
+from __future__ import annotations
+
 """Diff generation and comparison engine."""
 
 from sentinel.detector.drift import DriftEvent, DriftSeverity
 from sentinel.store.models import SchemaSnapshot
 
-
 class DiffEngine:
     """Engine for generating human-readable diffs between snapshots."""
-from __future__ import annotations
-
 
     @staticmethod
     def format_event(event: DriftEvent) -> dict:
