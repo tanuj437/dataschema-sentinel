@@ -1,6 +1,6 @@
 """Profiler for SQL tables via SQLAlchemy."""
 
-from datetime import datetime
+from datetime import datetime, timezone
 
 from sentinel.profiler.base import BaseProfiler
 from sentinel.store.models import SchemaSnapshot

@@ -1,6 +1,6 @@
 """Profiler for pandas DataFrames."""
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Optional
 
 import pandas as pd
@@ -23,7 +23,8 @@ DTYPE_MAP = {
     "float16": "float64",
     "bool": "bool",
     "object": "object",
-    "string": "string",
+    "string": "object",  # Normalize pandas StringDtype to object
+    "str": "object",  # Handle string alias
     "datetime64[ns]": "datetime",
     "datetime64[ns, UTC]": "datetime",
     "category": "category",
@@ -90,7 +91,7 @@ class PandasProfiler(BaseProfiler):
 
         return SchemaSnapshot(
             name=name,
-            captured_at=datetime.utcnow(),
+            captured_at=datetime.now(timezone.utc),
             row_count=len(df),
             columns=columns,
             source_type="pandas",
