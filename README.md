@@ -1,6 +1,12 @@
 # DataSchema Sentinel
 
+[![Tests](https://github.com/tanuj437/dataschema-sentinel/workflows/Tests/badge.svg)](https://github.com/tanuj437/dataschema-sentinel/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+
 Zero-config schema drift detection for data pipelines. Catch breaking schema changes before they break your data workflows.
+
+**Why:** Silent schema changes break downstream pipelines. This tool detects them automatically with zero setup.
 
 ## What is schema drift?
 
@@ -25,7 +31,16 @@ These changes break downstream pipelines, wake you up at 3am, and are nearly imp
 ### Installation
 
 ```bash
-pip install dataschema-sentinel
+# From PyPI (coming soon)
+# pip install dataschema-sentinel
+
+# From GitHub
+git clone https://github.com/tanuj437/dataschema-sentinel.git
+cd dataschema-sentinel
+pip install -e .
+
+# With all optional dependencies
+pip install -e ".[all]"
 ```
 
 ### Using the decorator
@@ -172,8 +187,14 @@ sentinel/
 ## Testing
 
 ```bash
+# Install dev dependencies
 pip install -e ".[dev]"
-pytest tests/
+
+# Run all tests (23 test cases)
+pytest tests/ -v
+
+# Run with coverage
+pytest tests/ --cov=sentinel --cov-report=html
 ```
 
 ## Development status
@@ -195,4 +216,4 @@ Contributions welcome! Start with the skeleton implementations in `profiler/` or
 
 ## Feedback
 
-Found a bug? Have a feature idea? Open an issue on GitHub.
+Found a bug? Have a feature idea? Open an issue on [GitHub](https://github.com/tanuj437/dataschema-sentinel/issues).
