@@ -8,6 +8,8 @@ from sentinel.store.models import SchemaSnapshot
 
 class SQLProfiler(BaseProfiler):
     """Profiler for SQL tables via SQLAlchemy.
+from __future__ import annotations
+
 
     TODO: Implement SQL table profiling via information_schema.
     """

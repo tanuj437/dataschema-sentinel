@@ -16,6 +16,8 @@ import pandas as pd
 @pytest.fixture
 def snapshot_v1():
     """First version of a schema."""
+from __future__ import annotations
+
     return SchemaSnapshot(
         name="test",
         captured_at=pd.Timestamp.utcnow().to_pydatetime(),

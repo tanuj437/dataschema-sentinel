@@ -8,6 +8,8 @@ from sentinel.profiler.pandas_profiler import PandasProfiler
 
 class TestPandasProfiler:
     """Tests for PandasProfiler."""
+from __future__ import annotations
+
 
     def test_profile_basic_dataframe(self, sample_dataframe):
         """Test profiling a basic DataFrame."""

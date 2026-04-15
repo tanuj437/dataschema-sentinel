@@ -14,6 +14,8 @@ from sentinel.core import Sentinel
 @pytest.fixture
 def temp_db():
     """Temporary database for testing."""
+from __future__ import annotations
+
     import sqlite3
     import atexit
 

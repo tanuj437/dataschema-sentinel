@@ -6,6 +6,8 @@ from sentinel.store.models import SchemaSnapshot
 
 class DiffEngine:
     """Engine for generating human-readable diffs between snapshots."""
+from __future__ import annotations
+
 
     @staticmethod
     def format_event(event: DriftEvent) -> dict:

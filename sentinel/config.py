@@ -8,6 +8,8 @@ from typing import Literal
 @dataclass
 class SentinelConfig:
     """Configuration for Sentinel behavior."""
+from __future__ import annotations
+
 
     db_path: Path = field(default_factory=lambda: Path.home() / ".sentinel" / "schemas.db")
     enabled_rules: list[str] = field(

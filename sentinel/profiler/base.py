@@ -6,6 +6,8 @@ from sentinel.store.models import SchemaSnapshot
 
 class BaseProfiler(ABC):
     """Abstract base class for schema profilers."""
+from __future__ import annotations
+
 
     @abstractmethod
     def profile(self, source: any, name: str, version: int) -> SchemaSnapshot:

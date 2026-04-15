@@ -33,6 +33,8 @@ DTYPE_MAP = {
 
 class PandasProfiler(BaseProfiler):
     """Profiler for pandas DataFrames."""
+from __future__ import annotations
+
 
     def profile(self, df: pd.DataFrame, name: str, version: int) -> SchemaSnapshot:
         """Profile a pandas DataFrame.

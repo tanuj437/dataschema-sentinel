@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Alerts module for drift notifications."""
 
 from sentinel.alerts.base import BaseAlerter

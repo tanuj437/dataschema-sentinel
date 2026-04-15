@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Diff and comparison module."""
 
 from sentinel.diff.engine import DiffEngine

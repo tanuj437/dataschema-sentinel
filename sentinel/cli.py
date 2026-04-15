@@ -9,6 +9,8 @@ import sentinel
 
 def main():
     """Main CLI entry point."""
+from __future__ import annotations
+
     parser = argparse.ArgumentParser(
         description="DataSchema Sentinel - Schema drift detection for data pipelines"
     )

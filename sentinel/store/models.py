@@ -8,6 +8,8 @@ from typing import Any, Optional
 @dataclass
 class ColumnProfile:
     """Profile of a single column in a DataFrame/table."""
+from __future__ import annotations
+
 
     name: str
     dtype: str  # Normalized dtype string: "int64", "float64", "object", etc.

@@ -9,6 +9,8 @@ from sentinel.store.models import SchemaSnapshot
 
 class SlackAlerter(BaseAlerter):
     """Alert via Slack webhook.
+from __future__ import annotations
+
 
     TODO: Implement Slack webhook integration using slack-sdk.
     """

@@ -17,6 +17,8 @@ import pandas as pd
 @pytest.fixture
 def snapshots_with_drift():
     """Create snapshots with drift events."""
+from __future__ import annotations
+
     snap_v1 = SchemaSnapshot(
         name="test",
         captured_at=pd.Timestamp.utcnow().to_pydatetime(),

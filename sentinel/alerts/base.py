@@ -9,6 +9,8 @@ from sentinel.store.models import SchemaSnapshot
 
 class BaseAlerter(ABC):
     """Abstract base class for drift alerters."""
+from __future__ import annotations
+
 
     @abstractmethod
     def alert(

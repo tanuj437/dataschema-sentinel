@@ -1,5 +1,7 @@
 """Built-in and custom drift detection rules."""
 
+from __future__ import annotations
+
 from typing import Callable, Optional
 
 from sentinel.detector.drift import DriftEvent, DriftSeverity

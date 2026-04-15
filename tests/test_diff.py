@@ -9,6 +9,8 @@ from sentinel.diff.engine import DiffEngine
 @pytest.fixture
 def sample_events():
     """Sample drift events for testing."""
+from __future__ import annotations
+
     return [
         DriftEvent(
             column="amount",

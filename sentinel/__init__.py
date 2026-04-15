@@ -11,6 +11,8 @@ _sentinel_instance = Sentinel()
 
 def watch(name: str, on_drift: str = "warn", profiler_type: str = "pandas"):
     """Decorator to watch a function for schema drift.
+from __future__ import annotations
+
 
     Args:
         name: Logical name for the schema

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Drift detection module."""
 
 from sentinel.detector.drift import DriftEvent, DriftSeverity, detect_drift

@@ -1,5 +1,7 @@
 """Main Sentinel class for schema drift detection."""
 
+from __future__ import annotations
+
 from datetime import datetime
 from functools import wraps
 from typing import Any, Callable, Literal, Optional, TypeVar

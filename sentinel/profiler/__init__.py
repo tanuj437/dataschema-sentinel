@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Profiler module for schema extraction."""
 
 from sentinel.profiler.base import BaseProfiler

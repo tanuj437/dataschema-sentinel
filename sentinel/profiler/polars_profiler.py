@@ -8,6 +8,8 @@ from sentinel.store.models import SchemaSnapshot
 
 class PolarsProfiler(BaseProfiler):
     """Profiler for Polars DataFrames.
+from __future__ import annotations
+
 
     TODO: Implement Polars DataFrame profiling.
     """
